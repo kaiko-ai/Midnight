@@ -64,20 +64,18 @@ Our best model **Midnight-92k/392** consistently outperforms or matches leading 
 
 
 ## Usage
-```py
+
+```python
 import timm
-import torch
 from timm.data import resolve_data_config
 from timm.data.transforms_factory import create_transform
-from PIL import Image
+from huggingface_hub import login
 
-from huggingface_hub import login, hf_hub_download
-
-# login()  # login with your User Access Token, found at https://huggingface.co/settings/tokens
+login()  # login or use an access token
 
 model = timm.create_model("hf-hub:kaiko-ai/midnight", pretrained=True)
-model = model.eval()
-model(torch.ones((1, 3, 224, 224)))[0].shape
+transform = create_transform(**resolve_data_config(model.pretrained_cfg, model=model))
+model.eval()
 ```
 
 
