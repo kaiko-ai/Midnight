@@ -40,7 +40,7 @@ We comprehensively evaluated the models using two sets of open-source benchmarks
 - [eva](https://github.com/kaiko-ai/eva): tile and slide-level tasks (classification, segmentation).
 - [HEST](https://github.com/mahmoodlab/HEST): gene expression prediction tasks.
 
-Our best model **M-92k/392** consistently outperforms or matches leading models like Virchow2 and UNI-2.
+Our best model **Midnight-92k/392** consistently outperforms or matches leading models like Virchow2 and UNI-2.
 
 ## Results Summary
 
