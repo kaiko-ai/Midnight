@@ -81,9 +81,12 @@ Pre-trained weights for M-12k are publicly available under the MIT license at:
 
 
  ## Citation
+ ```bibtex
  @inproceedings{KDK2025,
   title={Training state-of-the-art pathology foundation models with orders of magnitude less data},
   author={Mikhail Karasikov, Joost van Doorn, Nicolas Känzig, Melis Erdal Cesur, Hugo Horlings, Robert Berke, Fei Tang, Sebastian Otálora},
   year={2025},
   booktitle={Conference Proceedings}
 }
+```
+
