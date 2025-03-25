@@ -63,14 +63,22 @@ Our best model **Midnight-92k/392** consistently outperforms or matches leading 
 | [vitg14 (initial)](https://github.com/facebookresearch/dinov2)   | .493   | .65         | .47  | .41  | .43      | .75  | .46     | .58   | .76  | .53                | .30           | .46    | .43     | .166       |
 
 ## Usage
+```py
+import timm
+import torch
+from timm.data import resolve_data_config
+from timm.data.transforms_factory import create_transform
+from PIL import Image
 
-### Installation
+from huggingface_hub import login, hf_hub_download
 
-```bash
-git clone <repo_url>
-cd <repo_dir>
-pip install -r requirements.txt
+# login()  # login with your User Access Token, found at https://huggingface.co/settings/tokens
+
+model = timm.create_model("hf-hub:kaiko-ai/midnight", pretrained=True)
+model = model.eval()
+model(torch.ones((1, 3, 224, 224)))[0].shape
 ```
+
 
 ### Model Weights
 
