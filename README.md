@@ -13,9 +13,9 @@ We propose a refined self-supervised training framework based on DINOv2 with mod
 
 ## Model Highlights
 
-- **M-12k**: Trained exclusively on the publicly available TCGA dataset (12k WSIs).
-- **M-92k**: Trained on TCGA and an additional proprietary dataset (PRV-80k).
-- **M-92k/392**: Our top-performing model fine-tuned with high-resolution post-training.
+- **Midnight-12k**: Trained exclusively on the publicly available TCGA dataset (12k WSIs).
+- **Midnight-92k**: Trained on TCGA and an additional proprietary dataset (PRV-80k).
+- **Midnight-92k/392**: Our top-performing model fine-tuned with high-resolution post-training.
 
 ## Dataset
 
@@ -43,14 +43,14 @@ We comprehensively evaluated the models using two sets of open-source benchmarks
 Our best model **M-92k/392** consistently outperforms or matches leading models like Virchow2 and UNI-2.
 
 ## Results Summary
-
+<div style="font-size:0.8em;">
 | Model              | AVERAGE   | PCam-10Shot | BACH | BRCS | BreaKHis | CRC  | Gleason | MHIST | PCam   | Camelyon16 (small)  | Panda (small)  | CoNSeP | MoNuSAC | HEST (avg)  |
 |--------------------|--------|------|------|------|------|------|------|------|------|------|------|------|------|-------|
-| **M-92k/392**      | **.779** | .90  | .90  | .65  | .80  | .97  | .81  | .83  | .95  | .88  | .65  | .66  | .71  | .415  |
+| **Midnight-92k/392**      | **.779** | .90  | .90  | .65  | .80  | .97  | .81  | .83  | .95  | .88  | .65  | .66  | .71  | .415  |
 | UNI-2              | .777   | .89  | .92  | .65  | .86  | .97  | .78  | .83  | .95  | .88  | .67  | .63  | .64  | .431  |
 | Virchow2           | .769   | .84  | .89  | .63  | .82  | .97  | .79  | .87  | .94  | .89  | .66  | .64  | .67  | .403  |
-| **M-92k**          | .768   | .88  | .89  | .62  | .79  | .97  | .82  | .83  | .95  | .88  | .64  | .63  | .66  | .425  |
-| **M-12k**          | .761   | .80  | .91  | .64  | .84  | .97  | .79  | .82  | .93  | .86  | .65  | .63  | .66  | .412  |
+| **Midnight-92k**          | .768   | .88  | .89  | .62  | .79  | .97  | .82  | .83  | .95  | .88  | .64  | .63  | .66  | .425  |
+| **Midnight-12k**          | .761   | .80  | .91  | .64  | .84  | .97  | .79  | .82  | .93  | .86  | .65  | .63  | .66  | .412  |
 | H-Optimus-0        | .759   | .83  | .75  | .62  | .81  | .96  | .77  | .85  | .94  | .90  | .67  | .64  | .69  | .425  |
 | Kaiko-B8           | .757   | .80  | .88  | .64  | .84  | .96  | .76  | .83  | .92  | .85  | .65  | .64  | .69  | .391  |
 | Prov_GigaPath      | .757   | .85  | .79  | .63  | .85  | .96  | .73  | .83  | .94  | .89  | .66  | .63  | .69  | .405  |
@@ -61,6 +61,8 @@ Our best model **M-92k/392** consistently outperforms or matches leading models 
 | Lunit              | .720   | .76  | .79  | .63  | .76  | .94  | .76  | .79  | .91  | .84  | .60  | .60  | .63  | .362  |
 | vitg14 (nat. img.) | .675   | .72  | .72  | .58  | .78  | .94  | .74  | .86  | .88  | .51  | .51  | .57  | .61  | .351  |
 | vitg14 (initial)   | .493   | .65  | .47  | .41  | .43  | .75  | .46  | .58  | .76  | .53  | .30  | .46  | .43  | .166  |
+<!-- your table here -->
+</div>
 
 ## Usage
 
