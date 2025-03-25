@@ -82,8 +82,7 @@ model(torch.ones((1, 3, 224, 224)))[0].shape
 
 ### Model Weights
 
-Pre-trained weights for M-12k are publicly available under the MIT license at:
-	•	Download link coming soon
+Pre-trained weights for M-12k are publicly available via Hugging-Face under the MIT license: [Download link](https://huggingface.co/kaiko-ai/midnight/tree/main)
 
 
  ## Citation
