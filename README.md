@@ -35,7 +35,7 @@ We propose a refined self-supervised training framework based on DINOv2 with mod
 
 ## Evaluation
 
-We comprehensively evaluated the models using two sets of open-source benchmarks (total of 20 tasks):
+We comprehensively evaluated the models using two sets of open-source benchmarks:
 
 - [eva](https://github.com/kaiko-ai/eva): tile and slide-level tasks (classification, segmentation).
 - [HEST](https://github.com/mahmoodlab/HEST): gene expression prediction tasks.
