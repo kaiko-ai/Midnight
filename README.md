@@ -44,7 +44,7 @@ Our best model **Midnight-92k/392** consistently outperforms or matches leading 
 
 ## Results Summary
 
-| Model                                                          | AVG. | PCam (10 shots) | BACH | BRCS | BreaKHis | CRC  | Gleason | MHIST | PCam | Camelyon16 (small) | Panda (small) | CoNSeP | MoNuSAC | HEST |
+| Model                                                          | AVG. | PCam 10&#160;shots | BACH | BRCS | BreaKHis | CRC  | Gleason | MHIST | PCam | Camelyon16 (small) | Panda (small) | CoNSeP | MoNuSAC | HEST |
 |----------------------------------------------------------------|---------|-------------|------|------|----------|------|---------|-------|------|--------------------|---------------|--------|---------|------------|
 | **[Midnight-92k/392](https://github.com/kaiko-ai/Midnight)**       | **0.779** | **0.900** | **0.904** | **0.646** | 0.802     | 0.966     | **0.807** | 0.828     | **0.951** | 0.883     | 0.651     | **0.662** | **0.708** | 0.415     |
 | [UNI-2](https://huggingface.co/MahmoodLab/UNI2-h)                  | **0.777** | **0.885** | **0.924** | **0.651** | **0.863** | **0.970** | 0.777     | 0.829     | **0.951** | 0.884     | **0.666** | 0.626     | 0.644     | **0.431** |
