@@ -43,7 +43,6 @@ We comprehensively evaluated the models using two sets of open-source benchmarks
 Our best model **M-92k/392** consistently outperforms or matches leading models like Virchow2 and UNI-2.
 
 ## Results Summary
-<div style="font-size:0.8em;">
 | Model              | AVERAGE   | PCam-10Shot | BACH | BRCS | BreaKHis | CRC  | Gleason | MHIST | PCam   | Camelyon16 (small)  | Panda (small)  | CoNSeP | MoNuSAC | HEST (avg)  |
 |--------------------|--------|------|------|------|------|------|------|------|------|------|------|------|------|-------|
 | **Midnight-92k/392**      | **.779** | .90  | .90  | .65  | .80  | .97  | .81  | .83  | .95  | .88  | .65  | .66  | .71  | .415  |
@@ -61,7 +60,6 @@ Our best model **M-92k/392** consistently outperforms or matches leading models 
 | Lunit              | .720   | .76  | .79  | .63  | .76  | .94  | .76  | .79  | .91  | .84  | .60  | .60  | .63  | .362  |
 | vitg14 (nat. img.) | .675   | .72  | .72  | .58  | .78  | .94  | .74  | .86  | .88  | .51  | .51  | .57  | .61  | .351  |
 | vitg14 (initial)   | .493   | .65  | .47  | .41  | .43  | .75  | .46  | .58  | .76  | .53  | .30  | .46  | .43  | .166  |
-<!-- your table here -->
 </div>
 
 ## Usage
@@ -90,3 +88,8 @@ Pre-trained weights for M-12k are publicly available under the MIT license at:
 }
 ```
 
+<br />
+
+<div align="center">
+  <img src="https://github.com/kaiko-ai/midnight/blob/main/docs/images/kaiko-logo.png?raw=true" width="200">
+</div>
