@@ -17,14 +17,14 @@ We propose a refined self-supervised training framework based on DINOv2 with mod
 - **Midnight-92k**: Trained on TCGA and an additional proprietary dataset (PRV-80k).
 - **Midnight-92k/392**: Our top-performing model fine-tuned with high-resolution post-training.
 
-## Dataset
+## Training Datasets
 
-| Dataset | WSIs | Source        |
-|---------|------|---------------|
-| TCGA    | 12k  | Public        |
-| PRV-80k | 80k  | Proprietary   |
-| GTEx    | 25k  | Public        |
-| CPTAC   | 7.2k | Public        |
+| Dataset | WSIs | Source        | Comment    | 
+|---------|------|---------------|------------|
+| TCGA    | 12k  | Public        | FFPE only  |
+| PRV-80k | 80k  | Proprietary   | 10,141 patients and 31 organs |
+| GTEx    | 25k  | Public        | Healthy subjects |
+| CPTAC   | 7.2k | Public        | tumor samples from 13 cohorts | 
 
 ## Key Techniques
 
@@ -82,8 +82,9 @@ model.eval()
 
 
 ### Model Weights
+Pre-trained weights for Midnight-12k (M-12k) are publicly available on Hugging Face under the permissive MIT license, permitting commercial usage: [Download link](https://huggingface.co/kaiko-ai/midnight/tree/main).
 
-Pre-trained weights for M-12k are publicly available via Hugging-Face under the MIT license: [Download link](https://huggingface.co/kaiko-ai/midnight/tree/main)
+Midnight-92k and Midnight-92k/392 weights were trained on proprietary datasets and are subject to restricted access.
 
 
  ## Citation
