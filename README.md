@@ -25,12 +25,13 @@ We propose a refined self-supervised training framework based on DINOv2 with mod
 | GTEx    | 25k  | Public        | Healthy subjects |
 | CPTAC   | 7.2k | Public        | tumor samples from 13 cohorts | 
 
-## Training Features 
+## Training Components 
 
+- **DINOv2**: Self-supervised training with [DINOv2](https://github.com/facebookresearch/dinov2).
+- **KDE regularizer**: Replaced KoLeo in DINOv2 to ensure embedding diversity and training stability.
 - **Online patching**: Efficient real-time extraction of informative tiles.
 - **Color augmentation (HED)**: Robustness to stain variations.
-- **HSV filtering**: Removal of low-informative tissue regions.
-- **KDE regularizer**: Ensures embedding diversity and stability.
+- **Tile filtering**: Removal of low-informative tissue regions.
 
 ## Evaluation
 
