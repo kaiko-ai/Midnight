@@ -62,6 +62,12 @@ Our best model **Midnight-92k/392** consistently outperforms or matches leading 
 | [vitg14 (initial)](https://github.com/facebookresearch/dinov2)     | 0.493     | 0.652     | 0.474     | 0.413     | 0.425     | 0.754     | 0.459     | 0.578     | 0.763     | 0.532     | 0.304     | 0.462     | 0.432     | 0.166     |
 
 
+## Model Weights
+Pre-trained weights for Midnight-12k (M-12k) are publicly available on Hugging Face under the permissive MIT license, permitting commercial usage: [Download link](https://huggingface.co/kaiko-ai/midnight/tree/main).
+
+Midnight-92k and Midnight-92k/392 weights were trained on proprietary datasets and are subject to restricted access.
+
+
 ## Usage
 
 **Midnight-12k** is publicly available at [https://huggingface.co/kaiko-ai/midnight](https://huggingface.co/kaiko-ai/midnight).
@@ -114,12 +120,6 @@ batch = transform(image).unsqueeze(dim=0)
 embedding = extract_segmentation_embedding(model(batch).last_hidden_state)
 print(f"Embedding shape: {embedding[0].shape}")
 ```
-
-
-## Model Weights
-Pre-trained weights for Midnight-12k (M-12k) are publicly available on Hugging Face under the permissive MIT license, permitting commercial usage: [Download link](https://huggingface.co/kaiko-ai/midnight/tree/main).
-
-Midnight-92k and Midnight-92k/392 weights were trained on proprietary datasets and are subject to restricted access.
 
 
  ## Citation
