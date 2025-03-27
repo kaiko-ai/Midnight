@@ -37,8 +37,8 @@ We propose a refined self-supervised training framework based on DINOv2 with mod
 
 We comprehensively evaluated the models using two sets of open-source benchmarks:
 
-- [eva](https://github.com/kaiko-ai/eva): tile and slide-level tasks (classification, segmentation).
-- [HEST](https://github.com/mahmoodlab/HEST): gene expression prediction tasks.
+- [eva](https://github.com/kaiko-ai/eva): tile (classification, segmentation) and slide-level tasks (classification) .
+- [HEST](https://github.com/mahmoodlab/HEST): gene expression prediction tasks (regression).
 
 Our best model **Midnight-92k/392** consistently outperforms or matches leading models like Virchow2 and UNI-2.
 
