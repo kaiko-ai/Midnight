@@ -9,7 +9,6 @@ We propose a refined self-supervised training framework based on DINOv2 with mod
 
 - Three novel pathology FMs trained with significantly reduced data (up to 100x fewer WSIs).
 - Introduction of high-resolution post-training to enhance embedding quality.
-- Ablation studies illustrating the impact of each proposed modification.
 
 ## Model Highlights
 
@@ -22,11 +21,11 @@ We propose a refined self-supervised training framework based on DINOv2 with mod
 | Dataset | WSIs | Source        | Comment    | 
 |---------|------|---------------|------------|
 | TCGA    | 12k  | Public        | FFPE only  |
-| PRV-80k | 80k  | Proprietary   | 10,141 patients and 31 organs |
+| NKI-80k | 80k  | Proprietary   | 10,141 patients and 31 organs |
 | GTEx    | 25k  | Public        | Healthy subjects |
 | CPTAC   | 7.2k | Public        | tumor samples from 13 cohorts | 
 
-## Key Techniques
+## Training Features 
 
 - **Online patching**: Efficient real-time extraction of informative tiles.
 - **Color augmentation (HED)**: Robustness to stain variations.
@@ -37,7 +36,7 @@ We propose a refined self-supervised training framework based on DINOv2 with mod
 
 We comprehensively evaluated the models using two sets of open-source benchmarks:
 
-- [eva](https://github.com/kaiko-ai/eva): tile (classification, segmentation) and slide-level tasks (classification) .
+- [eva](https://github.com/kaiko-ai/eva): tile (classification, segmentation) and slide-level tasks (classification).
 - [HEST](https://github.com/mahmoodlab/HEST): gene expression prediction tasks (regression).
 
 Our best model **Midnight-92k/392** consistently outperforms or matches leading models like Virchow2 and UNI-2.
@@ -68,20 +67,56 @@ Our best model **Midnight-92k/392** consistently outperforms or matches leading 
 **Midnight-12k** is publicly available at [https://huggingface.co/kaiko-ai/midnight](https://huggingface.co/kaiko-ai/midnight).
 
 ```python
-import timm
-from timm.data import resolve_data_config
-from timm.data.transforms_factory import create_transform
-from huggingface_hub import login
+from transformers import AutoImageProcessor, AutoModel
+from PIL import Image
+import requests
+from torchvision.transforms import v2
 
-login()  # login or use an access token
+url = 'https://upload.wikimedia.org/wikipedia/commons/8/80/Breast_DCIS_histopathology_%281%29.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
 
-model = timm.create_model("hf-hub:kaiko-ai/midnight", pretrained=True)
-transform = create_transform(**resolve_data_config(model.pretrained_cfg, model=model))
-model.eval()
+transform = v2.Compose(
+    [
+        v2.Resize(224),
+        v2.CenterCrop(224),
+        v2.ToTensor(),
+        v2.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5)),
+    ]
+)
+model = AutoModel.from_pretrained('kaiko-ai/midnight')
+```
+
+### Extract embeddings for classification
+```python
+import torch
+
+def extract_classification_embedding(tensor):
+    cls_embedding, patch_embeddings = tensor[:, 0, :], tensor[:, 1:, :]
+    return torch.cat([cls_embedding, patch_embeddings.mean(1)], dim=-1)
+
+batch = transform(image).unsqueeze(dim=0)
+embedding = extract_classification_embedding(model(batch).last_hidden_state)
+print(f"Embedding shape: {embedding[0].shape}")
+```
+
+### Extract embeddings for segmentation
+```python
+import math
+import torch
+
+def extract_segmentation_embedding(tensor):
+    features = tensor[:, 1:, :].permute(0, 2, 1)
+    batch_size, hidden_size, patch_grid = features.shape
+    height = width = int(math.sqrt(patch_grid))
+    return features.view(batch_size, hidden_size, height, width)
+
+batch = transform(image).unsqueeze(dim=0)
+embedding = extract_segmentation_embedding(model(batch).last_hidden_state)
+print(f"Embedding shape: {embedding[0].shape}")
 ```
 
 
-### Model Weights
+## Model Weights
 Pre-trained weights for Midnight-12k (M-12k) are publicly available on Hugging Face under the permissive MIT license, permitting commercial usage: [Download link](https://huggingface.co/kaiko-ai/midnight/tree/main).
 
 Midnight-92k and Midnight-92k/392 weights were trained on proprietary datasets and are subject to restricted access.
