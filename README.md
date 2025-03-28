@@ -21,9 +21,9 @@ We propose a refined self-supervised training framework based on DINOv2 with mod
 | Dataset | WSIs | Source        | Comment    | 
 |---------|------|---------------|------------|
 | TCGA    | 12k  | Public        | FFPE only  |
-| NKI-80k | 80k  | Proprietary   | 10,141 patients and 31 organs |
+| NKI-80k | 80k  | Proprietary   | 10,141 patients, 31 organs |
 | GTEx    | 25k  | Public        | Healthy subjects |
-| CPTAC   | 7.2k | Public        | tumor samples from 13 cohorts | 
+| CPTAC   | 7.2k | Public        | Tumor samples from 13 cohorts | 
 
 ## Training Components 
 
@@ -37,8 +37,8 @@ We propose a refined self-supervised training framework based on DINOv2 with mod
 
 We comprehensively evaluated the models using two sets of open-source benchmarks:
 
-- [eva](https://github.com/kaiko-ai/eva): tile (classification, segmentation) and slide-level tasks (classification).
-- [HEST](https://github.com/mahmoodlab/HEST): gene expression prediction tasks (regression).
+- [eva](https://github.com/kaiko-ai/eva): For both tile (classification, segmentation) and slide-level tasks.
+- [HEST](https://github.com/mahmoodlab/HEST): For gene expression prediction tasks (regression).
 
 Our best model **Midnight-92k/392** consistently outperforms or matches leading models like Virchow2 and UNI-2.
 
@@ -64,9 +64,8 @@ Our best model **Midnight-92k/392** consistently outperforms or matches leading 
 
 
 ## Model Weights
-Pre-trained weights for Midnight-12k (M-12k) are publicly available on Hugging Face under the permissive MIT license, permitting commercial usage: [Download link](https://huggingface.co/kaiko-ai/midnight/tree/main).
-
-Midnight-92k and Midnight-92k/392 weights were trained on proprietary datasets and are subject to restricted access.
+- Midnight-12k: [Publicly available](https://huggingface.co/kaiko-ai/midnight/tree/main) under the permissive MIT license.
+- Midnight-92k & Midnight-92k/392: Trained on proprietary datasets and subject to restricted access.
 
 
 ## Usage
