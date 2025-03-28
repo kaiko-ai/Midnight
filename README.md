@@ -72,6 +72,8 @@ Our best model **Midnight-92k/392** consistently outperforms or matches leading 
 
 **Midnight-12k** is publicly available at [https://huggingface.co/kaiko-ai/midnight](https://huggingface.co/kaiko-ai/midnight).
 
+Our models are trained on 224x224 images normalized with a mean of (0.5, 0.5, 0.5) and a standard deviation of (0.5, 0.5, 0.5). Please ensure you apply these exact normalization parameters when preparing your datasets for embedding extraction.
+
 ```python
 from transformers import AutoImageProcessor, AutoModel
 from PIL import Image
@@ -93,6 +95,7 @@ model = AutoModel.from_pretrained('kaiko-ai/midnight')
 ```
 
 ### Extract embeddings for classification
+For segmentation the output correspond to 224/14=16. There are 16x16 patch tokens.
 ```python
 import torch
 
@@ -106,6 +109,7 @@ print(f"Embedding shape: {embedding[0].shape}")
 ```
 
 ### Extract embeddings for segmentation
+
 ```python
 import math
 import torch
