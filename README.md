@@ -95,7 +95,7 @@ model = AutoModel.from_pretrained('kaiko-ai/midnight')
 ```
 
 ### Extract embeddings for classification
-For segmentation the output correspond to 224/14=16. There are 16x16 patch tokens.
+For segmentation tasks, the model output corresponds to 16x16 patch tokens (derived from 224/14=16).
 ```python
 import torch
 
