@@ -22,8 +22,6 @@ We propose a refined self-supervised training framework based on DINOv2 with mod
 |---------|------|---------------|------------|
 | TCGA    | 12k  | Public        | FFPE only  |
 | NKI-80k | 80k  | Proprietary   | 10,141 patients, 31 organs |
-| GTEx    | 25k  | Public        | Healthy subjects |
-| CPTAC   | 7.2k | Public        | Tumor samples from 13 cohorts | 
 
 ## Training Components 
 
