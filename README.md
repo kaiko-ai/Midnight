@@ -1,7 +1,7 @@
 # Kaiko midnight
 Midnight - Training State-of-the-Art Pathology Foundation Models with Orders of Magnitude Less Data
 
-This repository contains the official implementation for the paper titled "[Training state-of-the-art pathology foundation models with orders of magnitude less data](https://github.com/kaiko-ai/Midnight/blob/main/docs/MICCA2025.pdf)." Our approach achieves competitive performance compared to leading pathology foundation models (FMs), despite being trained on significantly fewer whole slide images (WSIs).
+This repository contains the official implementation for the paper titled "[Training state-of-the-art pathology foundation models with orders of magnitude less data](https://github.com/kaiko-ai/Midnight/blob/main/docs/midnight.pdf)." Our approach achieves competitive performance compared to leading pathology foundation models (FMs), despite being trained on significantly fewer whole slide images (WSIs).
 
 ## Overview
 
