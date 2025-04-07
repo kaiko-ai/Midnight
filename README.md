@@ -1,7 +1,7 @@
 # Kaiko midnight
 Midnight - Training State-of-the-Art Pathology Foundation Models with Orders of Magnitude Less Data
 
-This repository contains the official implementation for the paper titled "[Training state-of-the-art pathology foundation models with orders of magnitude less data]([url](https://github.com/kaiko-ai/Midnight/blob/main/docs/MICCA2025.pdf))." Our approach achieves competitive performance compared to leading pathology foundation models (FMs), despite being trained on significantly fewer whole slide images (WSIs).
+This repository contains the official implementation for the paper titled "[Training state-of-the-art pathology foundation models with orders of magnitude less data](https://github.com/kaiko-ai/Midnight/blob/main/docs/MICCA2025.pdf)." Our approach achieves competitive performance compared to leading pathology foundation models (FMs), despite being trained on significantly fewer whole slide images (WSIs).
 
 ## Overview
 
@@ -28,10 +28,10 @@ We propose a refined self-supervised training framework based on DINOv2 with mod
 ## Training Components 
 
 - **DINOv2**: Self-supervised training with [DINOv2](https://github.com/facebookresearch/dinov2).
-- **KDE regularizer**: Replaced KoLeo in DINOv2 to ensure embedding diversity and training stability.
-- **Online patching**: Efficient real-time extraction of informative tiles.
-- **Color augmentation (HED)**: Robustness to stain variations.
-- **Tile filtering**: Removal of low-informative tissue regions.
+- **[KDE regularizer](https://proceedings.mlr.press/v119/wang20k/wang20k.pdf)**: Replaced KoLeo in DINOv2 to ensure embedding diversity and training stability.
+- **[Online patching](https://arxiv.org/pdf/2404.15217)**: Efficient real-time extraction of informative tiles.
+- **Color augmentation ([HED](https://arxiv.org/pdf/1902.06543))**: Robustness to stain variations.
+- **Tile [filtering](https://arxiv.org/html/2408.00738v3#S5)**: Removal of low-informative tissue regions.
 
 ## Evaluation
 
