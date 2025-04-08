@@ -61,8 +61,8 @@ Our best model **Midnight-92k/392** consistently outperforms or matches leading 
 | [vitg14 (initial)](https://github.com/facebookresearch/dinov2) | 0.493 | 0.652 | 0.474 | 0.413 | 0.425 | 0.754 | 0.459 | 0.578 | 0.763 | 0.526 | 0.304 | 0.462 | 0.432 | 0.166 |
 
 ## Model Weights
-- Midnight-12k: [Publicly available](https://huggingface.co/kaiko-ai/midnight/tree/main) under the permissive MIT license.
-- Midnight-92k & Midnight-92k/392: Trained on proprietary datasets and subject to restricted access.
+- **Midnight-12k**: Publicly available at https://huggingface.co/kaiko-ai/midnight.
+- **Midnight-92k** & **Midnight-92k/392**: Trained on proprietary data and, hence, subject to restricted access.
 
 
 ## Usage
@@ -125,11 +125,14 @@ print(f"Embedding shape: {embedding[0].shape}")
 
  ## Citation
  ```bibtex
- @article{KDK2025,
+ @misc{KDK2025,
    title={Training state-of-the-art pathology foundation models with orders of magnitude less data},
-   author={Mikhail Karasikov, Joost van Doorn, Nicolas Känzig, Melis Erdal Cesur, Hugo Horlings, Robert Berke, Fei Tang, Sebastian Otálora},
+   author={Mikhail Karasikov and Joost van Doorn and Nicolas Känzig and Melis Erdal Cesur and Hugo Mark Horlings and Robert Berke and Fei Tang and Sebastian Otálora},
    year={2025},
-   journal={arXiv preprint}
+   eprint={2504.05186},
+   archivePrefix={arXiv},
+   primaryClass={cs.CV},
+   url={https://arxiv.org/abs/2504.05186}, 
 }
 ```
 
