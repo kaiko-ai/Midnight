@@ -1,0 +1,6 @@
+[submodule "eval/eva"]
+	path = eval/eva
+	url = git@github.com:kaiko-ai/eva.git
+[submodule "eval/HEST"]
+	path = eval/HEST
+	url = git@github.com:mahmoodlab/HEST.git
