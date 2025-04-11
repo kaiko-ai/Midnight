@@ -139,5 +139,5 @@ print(f"Embedding shape: {embedding[0].shape}")
 <br />
 
 <div align="center">
-  <img src="https://github.com/kaiko-ai/midnight/blob/main/docs/images/kaiko-logo.png?raw=true" width="200">
+  <img src="https://github.com/user-attachments/assets/7848aee0-12a4-439b-97cb-d69b034b710c?raw=true" width="200">
 </div>
