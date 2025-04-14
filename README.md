@@ -13,7 +13,7 @@ We propose a refined self-supervised training framework based on DINOv2 with mod
 ## Model Highlights
 
 - **Midnight-12k**: Trained exclusively on the publicly available TCGA dataset (12k WSIs).
-- **Midnight-92k**: Trained on TCGA and an additional proprietary dataset (PRV-80k).
+- **Midnight-92k**: Trained on TCGA and an additional proprietary dataset (NKI-80k).
 - **Midnight-92k/392**: Our top-performing model fine-tuned with high-resolution post-training.
 
 ## Training Datasets
