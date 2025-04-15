@@ -17,9 +17,9 @@ MODEL_NAME="vitg14_Kaiko_Midnight_concat";
 TASK="camelyon16_small";
 MODEL_NAME=$MODEL_NAME \
 IN_FEATURES=$(python get_dim.py $MODEL_NAME 1) \
-OUTPUT_ROOT=/mnt/vast01/shared/experimental/pathology_fm/mikhail/data/eva/RESULTS_patience/${TASK}/${MODEL_NAME} \
+OUTPUT_ROOT=/pathology_fm/mikhail/data/eva/RESULTS_patience/${TASK}/${MODEL_NAME} \
 EMBEDDINGS_ROOT=/dev/shm/mikhail/eva/EMBEDDINGS/${TASK}/${MODEL_NAME} \
-DATA_ROOT=/mnt/vast01/shared/experimental/pathology_fm/mikhail/data/eva/${TASK} \
+DATA_ROOT=/pathology_fm/mikhail/data/eva/${TASK} \
 NORMALIZE_MEAN=[0.5,0.5,0.5] \
 NORMALIZE_STD=[0.5,0.5,0.5] \
 python -m eva predict_fit --config configs/vision/pathology/offline/classification/${TASK}.yaml
