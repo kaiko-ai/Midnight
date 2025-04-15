@@ -9,7 +9,7 @@
 
 ### Running EVA
 1. Checkout the submodules `git submodule update --init --recursive`
-2. Copy the custom model definitions [kaiko.py](./eva/src/eva/vision/models/networks/backbones/pathology/kaiko.py) and other helpers to eva: `cp kaiko.py object_tools.py backbones.py renormalized.py ./eva/src/eva/vision/models/networks/backbones/pathology/`
+2. Copy the custom model definitions [kaiko.py](./eva/src/eva/vision/models/networks/backbones/pathology/kaiko.py) and other helpers to eva: `cp kaiko.py object_tools.py backbones.py renormalized.py ./eva/src/eva/vision/models/networks/backbones/pathology/; mv kaiko.py kaiko.py_;`
 2. Install EVA: `pip install -e eva`
 2. Run benchmarks [run_eva_internal.sh](./run_eva_internal.sh), e.g.:
 ```bash
