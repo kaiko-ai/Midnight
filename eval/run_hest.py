@@ -12,7 +12,7 @@ from pathlib import Path
 import torch
 import torchvision.transforms as T
 import yaml
-from hest.bench import benchmark  # pants: no-infer-dep # type: ignore
+from hest.bench import benchmark
 from loguru import logger
 from torchvision.transforms import v2
 
