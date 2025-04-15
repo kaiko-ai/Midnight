@@ -22,5 +22,5 @@ EMBEDDINGS_ROOT=/dev/shm/mikhail/eva/EMBEDDINGS/${TASK}/${MODEL_NAME} \
 DATA_ROOT=/mnt/vast01/shared/experimental/pathology_fm/mikhail/data/eva/${TASK} \
 NORMALIZE_MEAN=[0.5,0.5,0.5] \
 NORMALIZE_STD=[0.5,0.5,0.5] \
-python -m kaiko.eva_internal predict_fit --config configs/vision/pathology/offline/classification/${TASK}.yaml
+python -m eva predict_fit --config configs/vision/pathology/offline/classification/${TASK}.yaml
 ```

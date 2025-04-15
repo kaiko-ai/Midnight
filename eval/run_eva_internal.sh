@@ -11,7 +11,7 @@ for TASK in {pcam_10shots,camelyon16_small,panda_small,}; do
     DATA_ROOT=/experimental/pathology_fm/mikhail/data/eva/${TASK} \
     NORMALIZE_MEAN=[0.5,0.5,0.5] \
     NORMALIZE_STD=[0.5,0.5,0.5] \
-    python -m kaiko.eva_internal predict_fit --config configs/vision/pathology/offline/classification/${TASK}.yaml; \
+    python -m eva predict_fit --config configs/vision/pathology/offline/classification/${TASK}.yaml; \
     rm -rf /dev/shm/mikhail/eva/EMBEDDINGS/${TASK}/${MODEL_NAME}";
 done
 
@@ -27,7 +27,7 @@ for TASK in {bach,crc,mhist,patch_camelyon,breakhis,bracs,gleason_arvaniti}; do
     DATA_ROOT=/experimental/pathology_fm/mikhail/data/eva/${TASK} \
     NORMALIZE_MEAN=[0.5,0.5,0.5] \
     NORMALIZE_STD=[0.5,0.5,0.5] \
-    python -m kaiko.eva_internal predict_fit --config configs/vision/pathology/offline/classification/${TASK}.yaml; \
+    python -m eva predict_fit --config configs/vision/pathology/offline/classification/${TASK}.yaml; \
     rm -rf /dev/shm/mikhail/eva/EMBEDDINGS/${TASK}/${MODEL_NAME}";
 done
 
@@ -41,7 +41,7 @@ for TASK in {consep,monusac}; do
     DATA_ROOT=/experimental/pathology_fm/mikhail/data/eva/${TASK} \
     NORMALIZE_MEAN=[0.5,0.5,0.5] \
     NORMALIZE_STD=[0.5,0.5,0.5] \
-    python -m kaiko.eva_internal fit --config configs/vision/pathology/online/segmentation/${TASK}.yaml";
+    python -m eva fit --config configs/vision/pathology/online/segmentation/${TASK}.yaml";
 done
 done
 
@@ -60,7 +60,7 @@ for TASK in {pcam_10shots,camelyon16_small,panda_small,}; do
     DATA_ROOT=/experimental/pathology_fm/mikhail/data/eva/${TASK} \
     NORMALIZE_MEAN=[0.5,0.5,0.5] \
     NORMALIZE_STD=[0.5,0.5,0.5] \
-    python -m kaiko.eva_internal predict_fit --config configs/vision/pathology/offline/classification/${TASK}.yaml; \
+    python -m eva predict_fit --config configs/vision/pathology/offline/classification/${TASK}.yaml; \
     rm -rf /dev/shm/mikhail/eva/EMBEDDINGS/${TASK}/${MODEL_NAME}";
 done
 
@@ -77,7 +77,7 @@ for TASK in {bach,crc,mhist,patch_camelyon,breakhis,bracs,gleason_arvaniti}; do
     DATA_ROOT=/experimental/pathology_fm/mikhail/data/eva/${TASK} \
     NORMALIZE_MEAN=[0.5,0.5,0.5] \
     NORMALIZE_STD=[0.5,0.5,0.5] \
-    python -m kaiko.eva_internal predict_fit --config configs/vision/pathology/offline/classification/${TASK}.yaml; \
+    python -m eva predict_fit --config configs/vision/pathology/offline/classification/${TASK}.yaml; \
     rm -rf /dev/shm/mikhail/eva/EMBEDDINGS/${TASK}/${MODEL_NAME}";
 done
 
@@ -92,7 +92,7 @@ for TASK in {consep,monusac}; do
     DATA_ROOT=/experimental/pathology_fm/mikhail/data/eva/${TASK} \
     NORMALIZE_MEAN=[0.5,0.5,0.5] \
     NORMALIZE_STD=[0.5,0.5,0.5] \
-    python -m kaiko.eva_internal fit --config configs/vision/pathology/online/segmentation/${TASK}.yaml";
+    python -m eva fit --config configs/vision/pathology/online/segmentation/${TASK}.yaml";
 done
 done
 
@@ -110,7 +110,7 @@ for TASK in {bach,crc,mhist,patch_camelyon,camelyon16_small,panda_small,breakhis
     DATA_ROOT=/experimental/pathology_fm/mikhail/data/eva/${TASK} \
     NORMALIZE_MEAN=[0.5,0.5,0.5] \
     NORMALIZE_STD=[0.5,0.5,0.5] \
-    python -m kaiko.eva_internal predict_fit --config configs/vision/pathology/offline/classification/${TASK}.yaml; \
+    python -m eva predict_fit --config configs/vision/pathology/offline/classification/${TASK}.yaml; \
     rm -r /dev/shm/mikhail/eva/EMBEDDINGS/${TASK}/${MODEL_NAME}";
 done
 
@@ -123,6 +123,6 @@ for TASK in {consep,monusac}; do
     DATA_ROOT=/experimental/pathology_fm/mikhail/data/eva/${TASK} \
     NORMALIZE_MEAN=[0.5,0.5,0.5] \
     NORMALIZE_STD=[0.5,0.5,0.5] \
-    python -m kaiko.eva_internal fit --config configs/vision/pathology/online/segmentation/${TASK}.yaml";
+    python -m eva fit --config configs/vision/pathology/online/segmentation/${TASK}.yaml";
 done
 done
