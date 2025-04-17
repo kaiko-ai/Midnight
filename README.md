@@ -122,6 +122,9 @@ embedding = extract_segmentation_embedding(model(batch).last_hidden_state)
 print(f"Embedding shape: {embedding[0].shape}")
 ```
 
+### Use via Trident
+
+Midnight-12k is now supported in the [Trident toolkit](https://github.com/mahmoodlab/TRIDENT), see the documentation for more details.
 
  ## Citation
  ```bibtex
