@@ -1,0 +1,582 @@
+# directory containing the data for each task
+bench_data_root: '/Users/mike/pathology_fm/hest_eval/bench_data'
+
+# directory where benchmark results will be dumped
+results_dir: '/Users/mike/pathology_fm/hest_eval/ST_pred_results'
+
+# directory where the vision embeddings will be dumped
+embed_dataroot: '/Users/mike/pathology_fm/hest_eval/ST_data_emb'
+
+# directory to the model weights root
+weights_root: '/Users/mike/pathology_fm/hest_eval/fm_v1'
+
+# inference parameters
+batch_size: 128
+num_workers: 4
+
+# encoders to benchmark
+encoders: [
+  #"plip",
+  #"uni_v1", # uncomment after requesting the weights
+  #"resnet50",
+  #"ctranspath",
+  #"phikon",
+  #"remedis", # uncomment after requesting the weights
+  #"conch_v1", # uncomment after requesting the weights
+  #"gigapath", # uncomment after requesting the weights
+  #"virchow", # uncomment after requesting the weights
+  #"virchow2", # uncomment after requesting the weights
+  #"hoptimus0",
+]
+
+# datasets contained in `bench_data_root` to benchmark
+datasets: [
+"IDC",
+"PRAD",
+"PAAD",
+"SKCM",
+"COAD",
+"READ",
+"CCRCC",
+"HCC",
+"LUNG",
+"LYMPH_IDC",
+]
+
+dimreduce: "PCA"
+
+custom_encoders:
+  # DINOv2_vitg14_nki-tcga_post_100_aspect_epoch_059_resize392:
+  #   path: backbones.Kaiko
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vitg14
+  #     pretrained: false
+  #     concat_mean_patch_tokens: false
+  #     resize: 392
+  #     ckpt_path: /mnt/vast01/shared/experimental/pathology_fm/mikhail/runs/E48D4DAD-C48E-49E5-B4D9-AB679A594090/lightning_logs/version_0/checkpoints/epoch_059-step_30000.ckpt
+  #     ckpt_submodule: teacher.backbone
+  #     mode: bicubic
+
+  # DINOv2_vitg14_nki-tcga_post_100_aspect_epoch_059_resize392_concat:
+  #   path: backbones.Kaiko
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vitg14
+  #     pretrained: false
+  #     concat_mean_patch_tokens: true
+  #     resize: 392
+  #     ckpt_path: /mnt/vast01/shared/experimental/pathology_fm/mikhail/runs/E48D4DAD-C48E-49E5-B4D9-AB679A594090/lightning_logs/version_0/checkpoints/epoch_059-step_30000.ckpt
+  #     ckpt_submodule: teacher.backbone
+  #     mode: bicubic
+
+  # DINOv2_vitg14_tcga_post-three_300_aspect_epoch_029_resize392:
+  #   path: backbones.Kaiko
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vitg14
+  #     pretrained: false
+  #     concat_mean_patch_tokens: false
+  #     resize: 392
+  #     ckpt_path: /mnt/vast01/shared/experimental/pathology_fm/mikhail/runs/5B2123C9-D2CB-49A7-AD0A-A5F29BCD070E/lightning_logs/version_0/checkpoints/epoch_029-step_15000.ckpt
+  #     ckpt_submodule: teacher.backbone
+  #     mode: bicubic
+
+  # DINOv2_vitg14_tcga_post-three_300_aspect_epoch_029_resize392_concat:
+  #   path: backbones.Kaiko
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vitg14
+  #     pretrained: false
+  #     concat_mean_patch_tokens: true
+  #     resize: 392
+  #     ckpt_path: /mnt/vast01/shared/experimental/pathology_fm/mikhail/runs/5B2123C9-D2CB-49A7-AD0A-A5F29BCD070E/lightning_logs/version_0/checkpoints/epoch_029-step_15000.ckpt
+  #     ckpt_submodule: teacher.backbone
+  #     mode: bicubic
+
+  # DINOv2_vitg14_from_imagenet_tcga_100M_epoch_294:
+  #   ckpt_path: /mnt/vast01/shared/experimental/pathology_fm/mikhail/runs/1FDA5ADA-8357-4F5E-8A5C-8758F7751471/teacher.backbone/epoch_294-step_491765.pth
+  #   path: torch.hub.load
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vitg14
+  #     pretrained: false
+
+  # DINOv2_vitg14_from_imagenet_tcga_100M_epoch_294_concat:
+  #   path: backbones.Kaiko
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vitg14
+  #     pretrained: false
+  #     concat_mean_patch_tokens: true
+  #     ckpt_path: /mnt/vast01/shared/experimental/pathology_fm/mikhail/runs/1FDA5ADA-8357-4F5E-8A5C-8758F7751471/teacher.backbone/epoch_294-step_491765.pth
+
+  # vitL16_UNI:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.485, 0.456, 0.406]
+  #       std: [0.229, 0.224, 0.225]
+  #     model:
+  #       path: backbones.TimmModel
+  #       arguments:
+  #         concat_mean_patch_tokens: false
+  #         model_name: hf-hub:MahmoodLab/uni
+  #         init_values: 1.0e-5
+  #         pretrained: true
+  #         dynamic_img_size: true
+  #         num_classes: 0
+
+  # vitL16_UNI_resize512:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.485, 0.456, 0.406]
+  #       std: [0.229, 0.224, 0.225]
+  #     model:
+  #       path: backbones.TimmModel
+  #       arguments:
+  #         concat_mean_patch_tokens: false
+  #         model_name: hf-hub:MahmoodLab/uni
+  #         init_values: 1.0e-5
+  #         pretrained: true
+  #         dynamic_img_size: true
+  #         num_classes: 0
+
+  # vitL16_UNI_resize512_concat:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.485, 0.456, 0.406]
+  #       std: [0.229, 0.224, 0.225]
+  #     model:
+  #       path: backbones.TimmModel
+  #       arguments:
+  #         concat_mean_patch_tokens: true
+  #         model_name: hf-hub:MahmoodLab/uni
+  #         init_values: 1.0e-5
+  #         pretrained: true
+  #         dynamic_img_size: true
+  #         num_classes: 0
+
+  # vitL16_UNI_concat:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.485, 0.456, 0.406]
+  #       std: [0.229, 0.224, 0.225]
+  #     model:
+  #       path: backbones.TimmModel
+  #       arguments:
+  #         concat_mean_patch_tokens: true
+  #         model_name: hf-hub:MahmoodLab/uni
+  #         init_values: 1.0e-5
+  #         pretrained: true
+  #         dynamic_img_size: true
+  #         num_classes: 0
+
+  # virchow2:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.485, 0.456, 0.406]
+  #       std: [0.229, 0.224, 0.225]
+  #     model:
+  #       path: backbones.Virchow2
+  #       arguments: {concat_mean_patch_tokens: false}
+
+  # virchow2_concat:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.485, 0.456, 0.406]
+  #       std: [0.229, 0.224, 0.225]
+  #     model:
+  #       path: backbones.Virchow2
+  #       arguments: {concat_mean_patch_tokens: true}
+
+  # Bioptimus_h_optimus_0:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.707223, 0.578729, 0.703617]
+  #       std: [0.211883, 0.230117, 0.177517]
+  #     model:
+  #       path: timm.create_model
+  #       arguments:
+  #         model_name: hf-hub:bioptimus/H-optimus-0
+  #         init_values: 1.0e-5
+  #         pretrained: true
+  #         dynamic_img_size: true
+  #         num_classes: 0
+
+  # Bioptimus_h_optimus_0_concat:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.707223, 0.578729, 0.703617]
+  #       std: [0.211883, 0.230117, 0.177517]
+  #     model:
+  #       path: backbones.TimmModel
+  #       arguments:
+  #         concat_mean_patch_tokens: true
+  #         model_name: hf-hub:bioptimus/H-optimus-0
+  #         init_values: 1.0e-5
+  #         pretrained: true
+  #         dynamic_img_size: true
+  #         num_classes: 0
+
+  # vit_giant_patch14_224_UNI_resize392:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.485, 0.456, 0.406]
+  #       std: [0.229, 0.224, 0.225]
+  #     model:
+  #       path: timm.create_model
+  #       arguments:
+  #         model_name: hf-hub:MahmoodLab/UNI2-h
+  #         pretrained: True
+  #         img_size: 224
+  #         patch_size: 14
+  #         depth: 24
+  #         num_heads: 24
+  #         init_values: 1.0e-5
+  #         embed_dim: 1536
+  #         mlp_ratio: 5.33334  # 2.66667*2
+  #         num_classes: 0
+  #         no_embed_class: True
+  #         mlp_layer: timm.layers.SwiGLUPacked
+  #         act_layer: torch.nn.SiLU
+  #         reg_tokens: 8
+  #         dynamic_img_size: True
+
+  # vit_giant_patch14_224_UNI_resize392_concat:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.485, 0.456, 0.406]
+  #       std: [0.229, 0.224, 0.225]
+  #     model:
+  #       path: backbones.TimmModel
+  #       arguments:
+  #         concat_mean_patch_tokens: true
+  #         model_name: hf-hub:MahmoodLab/UNI2-h
+  #         pretrained: True
+  #         img_size: 224
+  #         patch_size: 14
+  #         depth: 24
+  #         num_heads: 24
+  #         init_values: 1.0e-5
+  #         embed_dim: 1536
+  #         mlp_ratio: 5.33334  # 2.66667*2
+  #         num_classes: 0
+  #         no_embed_class: True
+  #         mlp_layer: timm.layers.SwiGLUPacked
+  #         act_layer: torch.nn.SiLU
+  #         reg_tokens: 8
+  #         dynamic_img_size: True
+
+  # vit_giant_patch14_224_UNI_concat:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.485, 0.456, 0.406]
+  #       std: [0.229, 0.224, 0.225]
+  #     model:
+  #       path: backbones.TimmModel
+  #       arguments:
+  #         concat_mean_patch_tokens: true
+  #         model_name: hf-hub:MahmoodLab/UNI2-h
+  #         pretrained: True
+  #         img_size: 224
+  #         patch_size: 14
+  #         depth: 24
+  #         num_heads: 24
+  #         init_values: 1.0e-5
+  #         embed_dim: 1536
+  #         mlp_ratio: 5.33334  # 2.66667*2
+  #         num_classes: 0
+  #         no_embed_class: True
+  #         mlp_layer: timm.layers.SwiGLUPacked
+  #         act_layer: torch.nn.SiLU
+  #         reg_tokens: 8
+  #         dynamic_img_size: True
+
+  # vitL14_histai_hibou_l:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.7068,0.5755,0.722]
+  #       std: [0.195,0.2316,0.1816]
+  #     model:
+  #       path: backbones.HuggingFaceModel
+  #       arguments:
+  #         model_name_or_path: histai/hibou-L
+  #         trust_remote_code: true
+  #         with_config: false
+
+  # vitL14_histai_hibou_l_concat:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.7068,0.5755,0.722]
+  #       std: [0.195,0.2316,0.1816]
+  #     model:
+  #       path: backbones.HuggingFaceModel
+  #       arguments:
+  #         model_name_or_path: histai/hibou-L
+  #         trust_remote_code: true
+  #         with_config: false
+  #         output_transform:
+  #           class_path: extract_cls_token.ExtractConcatToken
+  #           init_args:
+  #             num_reg_tokens: 4
+
+  # vitg14_Prov_GigaPath:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.485, 0.456, 0.406]
+  #       std: [0.229, 0.224, 0.225]
+  #     model:
+  #       path: backbones.TimmModel
+  #       arguments:
+  #         concat_mean_patch_tokens: false
+  #         model_name: hf_hub:prov-gigapath/prov-gigapath
+  #         pretrained: true
+  #         dynamic_img_size: true
+  #         num_classes: 0
+
+  # vitg14_Prov_GigaPath_concat:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.485, 0.456, 0.406]
+  #       std: [0.229, 0.224, 0.225]
+  #     model:
+  #       path: backbones.TimmModel
+  #       arguments:
+  #         concat_mean_patch_tokens: true
+  #         model_name: hf_hub:prov-gigapath/prov-gigapath
+  #         pretrained: true
+  #         dynamic_img_size: true
+  #         num_classes: 0
+
+  # dino_vitL16_phikon2:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.485, 0.456, 0.406]
+  #       std: [0.229, 0.224, 0.225]
+  #     model:
+  #       path: backbones.HuggingFaceModel
+  #       arguments:
+  #         model_name_or_path: owkin/phikon-v2
+  #         output_transform:
+  #           class_path: extract_cls_token.ExtractCLSToken
+
+  # dino_vits16_phikon:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.485, 0.456, 0.406]
+  #       std: [0.229, 0.224, 0.225]
+  #     model:
+  #       path: backbones.HuggingFaceModel
+  #       arguments:
+  #         model_name_or_path: owkin/phikon
+  #         output_transform:
+  #           class_path: extract_cls_token.ExtractCLSToken
+
+  # dino_vitL16_phikon2_concat:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.485, 0.456, 0.406]
+  #       std: [0.229, 0.224, 0.225]
+  #     model:
+  #       path: backbones.HuggingFaceModel
+  #       arguments:
+  #         model_name_or_path: owkin/phikon-v2
+  #         output_transform:
+  #           class_path: extract_cls_token.ExtractConcatToken
+
+  # dino_vits16_phikon_concat:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.485, 0.456, 0.406]
+  #       std: [0.229, 0.224, 0.225]
+  #     model:
+  #       path: backbones.HuggingFaceModel
+  #       arguments:
+  #         model_name_or_path: owkin/phikon
+  #         output_transform:
+  #           class_path: extract_cls_token.ExtractConcatToken
+
+  # KAIKO-vitB8:
+  #   path: backbones.Kaiko
+  #   arguments:
+  #     repo_or_dir: kaiko-ai/towards_large_pathology_fms
+  #     model: vitb8
+  #     concat_mean_patch_tokens: false
+  #     trust_repo: true
+  #     dynamic_img_size: true
+  #     out_indices: null
+
+  # KAIKO-vitB8_concat:
+  #   path: backbones.Kaiko
+  #   arguments:
+  #     repo_or_dir: kaiko-ai/towards_large_pathology_fms
+  #     model: vitb8
+  #     concat_mean_patch_tokens: true
+  #     trust_repo: true
+  #     dynamic_img_size: true
+  #     out_indices: null
+
+  # kaikofm:
+  #   path: torch.hub.load
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vitg14
+  #     pretrained: false
+  #     concat_mean_patch_tokens: false
+  #     ckpt_path: /mnt/vast01/shared/experimental/pathology_fm/mikhail/runs/FM-1738EDAF-99E8-48E1-B1F8-498B280E098F/teacher.backbone/epoch_274-step_458425.pth
+
+  # DINOv2_vitg14_imagenet:
+  #   path: torch.hub.load
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vitg14
+  #     pretrained: true
+
+  # DINOv2_vitg14_imagenet_concat:
+  #   path: backbones.Kaiko
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vitg14
+  #     pretrained: true
+  #     concat_mean_patch_tokens: true
+
+  # vitg14:
+  #   path: torch.hub.load
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vitg14
+  #     pretrained: false
+
+  # vitg14_concat:
+  #   path: backbones.Kaiko
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vitg14
+  #     pretrained: false
+  #     concat_mean_patch_tokens: true
+
+  # dino_vits16_lunit_renorm:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.70322989, 0.53606487, 0.66096631]
+  #       std: [0.21716536, 0.26081574, 0.20723464]
+  #     model:
+  #       path: timm.create_model
+  #       arguments:
+  #         model_name: hf-hub:1aurent/vit_small_patch16_224.lunit_dino
+  #         pretrained: true
+  #         dynamic_img_size: true
+  #         num_classes: 0
+
+  # vits16_Lunit_renorm_concat:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.70322989, 0.53606487, 0.66096631]
+  #       std: [0.21716536, 0.26081574, 0.20723464]
+  #     model:
+  #       path: backbones.TimmModel
+  #       arguments:
+  #         concat_mean_patch_tokens: true
+  #         model_name: hf-hub:1aurent/vit_small_patch16_224.lunit_dino
+  #         pretrained: true
+  #         dynamic_img_size: true
+  #         num_classes: 0
+
+  # DINOv2_vitg14_from_imagenet_tcga_epoch_244:
+  #   # ckpt_path: az://experimental@stkaikodtpprdlab.blob.core.windows.net/pathology_fm/runs/nebul/vitg14_tcga_epoch_244-step_408415.pth
+  #   ckpt_path: /mnt/vast01/shared/outputs/mikhail/runs/FM-18A8DB4F-B29F-474E-BFA1-C5E8ABD39986/teacher.backbone/epoch_244-step_408415.pth
+  #   path: torch.hub.load
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vitg14
+  #     pretrained: false
+
+  # DINOv2_vitg14_from_imagenet_tcga_epoch_244_concat:
+  #   path: backbones.Kaiko
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vitg14
+  #     pretrained: false
+  #     concat_mean_patch_tokens: true
+  #     # ckpt_path: az://experimental@stkaikodtpprdlab.blob.core.windows.net/pathology_fm/runs/nebul/vitg14_tcga_epoch_244-step_408415.pth
+  #     ckpt_path: /mnt/vast01/shared/outputs/mikhail/runs/FM-18A8DB4F-B29F-474E-BFA1-C5E8ABD39986/teacher.backbone/epoch_244-step_408415.pth
+
+  # DINOv2_vitg14_from_imagenet_tcga-nki_epoch_274:
+  #   # ckpt_path: az://experimental@stkaikodtpprdlab.blob.core.windows.net/pathology_fm/runs/nebul/vitg14_tcga-nki_epoch_274-step_458425.pth
+  #   # ckpt_path: /Users/mike/Downloads/vitg14_tcga-nki_epoch_274-step_458425.pth
+  #   ckpt_path: /mnt/vast01/shared/experimental/pathology_fm/mikhail/runs/FM-1738EDAF-99E8-48E1-B1F8-498B280E098F/teacher.backbone/epoch_274-step_458425.pth
+  #   path: torch.hub.load
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vitg14
+  #     pretrained: false
+
+  # DINOv2_vitg14_from_imagenet_tcga-nki_epoch_274_concat:
+  #   path: backbones.Kaiko
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vitg14
+  #     pretrained: false
+  #     concat_mean_patch_tokens: true
+  #     # ckpt_path: az://experimental@stkaikodtpprdlab.blob.core.windows.net/pathology_fm/runs/nebul/vitg14_tcga-nki_epoch_274-step_458425.pth
+  #     ckpt_path: /mnt/vast01/shared/experimental/pathology_fm/mikhail/runs/FM-1738EDAF-99E8-48E1-B1F8-498B280E098F/teacher.backbone/epoch_274-step_458425.pth
+
+  # DINOv2_vits14_distilled_from_tcga-nki_099_concat:
+  #   path: backbones.Kaiko
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vits14
+  #     pretrained: false
+  #     concat_mean_patch_tokens: true
+  #     ckpt_path: /mnt/vast01/shared/experimental/pathology_fm/mikhail/runs/FM-0ABEE04B-0294-43EB-B682-18138CFD37F5/distilled.backbone/epoch_099-step_125000.pth
+
+  # DINOv2_vits14_distilled_from_tcga_099_no_rgzr_concat:
+  #   path: backbones.Kaiko
+  #   arguments:
+  #     repo_or_dir: facebookresearch/dinov2:main
+  #     model: dinov2_vits14
+  #     pretrained: false
+  #     concat_mean_patch_tokens: true
+  #     ckpt_path: /mnt/vast01/shared/experimental/pathology_fm/mikhail/runs/2386C448-CDA2-4C23-A1B0-9A2CC6CBF0F5/lightning_logs/version_0/checkpoints/distilled.backbone/epoch_099-step_125000.pth
+
+  # vitg14_Kaiko_Midnight_concat:
+  #   path: renormalized.RenormalizingModel
+  #   arguments:
+  #     new_normalization:
+  #       mean: [0.5, 0.5, 0.5]
+  #       std: [0.5, 0.5, 0.5]
+  #     model:
+  #       path: backbones.TimmModel
+  #       arguments:
+  #         concat_mean_patch_tokens: true
+  #         model_name: hf-hub:kaiko-ai/midnight
+  #         pretrained: true
+  #         num_classes: 0
+
+  vitg14_Kaiko_Midnight_concat:
+    path: backbones.HuggingFaceModel
+    arguments:
+      model_name_or_path: kaiko-ai/midnight
+      output_transform:
+        class_path: extract_cls_token.ExtractConcatToken
