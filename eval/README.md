@@ -11,7 +11,7 @@
 1. Get the submodules `git submodule update --init --recursive`
 2. Copy the custom model definitions [kaiko.py](./eva/src/eva/vision/models/networks/backbones/pathology/kaiko.py) and other helpers to eva: `cp kaiko.py object_tools.py backbones.py renormalized.py ./eva/src/eva/vision/models/networks/backbones/pathology/; mv kaiko.py kaiko.py_;`
 3. Install EVA: `pip install -e eva`
-4. Download the data according following the eva [instructions](https://kaiko-ai.github.io/eva/main/datasets) (also see the [eva user guide](https://kaiko-ai.github.io/eva/main/user-guide/))
+4. Download the data according following the eva [instructions](https://kaiko-ai.github.io/eva/main/datasets) (or add flag `DOWNLOAD_DATA=true` to the run scripts to automatically download the data inside the first eva run), also see the [eva user guide](https://kaiko-ai.github.io/eva/main/user-guide/)
 5. Run benchmarks [run_eva_internal.sh](./run_eva_internal.sh), e.g.:
 ```bash
 MODEL_NAME="vitg14_Kaiko_Midnight_concat";
