@@ -128,14 +128,16 @@ Midnight-12k is now supported in the [Trident toolkit](https://github.com/mahmoo
 
  ## Citation
  ```bibtex
- @misc{KDK2025,
-   title={Training state-of-the-art pathology foundation models with orders of magnitude less data},
-   author={Mikhail Karasikov and Joost van Doorn and Nicolas Känzig and Melis Erdal Cesur and Hugo Mark Horlings and Robert Berke and Fei Tang and Sebastian Otálora},
-   year={2025},
-   eprint={2504.05186},
-   archivePrefix={arXiv},
-   primaryClass={cs.CV},
-   url={https://arxiv.org/abs/2504.05186}, 
+@InProceedings{KarMik_Training_MICCAI2025,
+  title={Training state-of-the-art pathology foundation models with orders of magnitude less data},
+  author={Mikhail Karasikov and Joost van Doorn and Nicolas Känzig and Melis Erdal Cesur and Hugo Mark Horlings and Robert Berke and Fei Tang and Sebastian Otálora},
+  booktitle = {Medical Image Computing and Computer Assisted Intervention -- MICCAI 2025},
+  year = {2025},
+  publisher = {Springer Nature Switzerland},
+  volume = {LNCS 15967},
+  month = {October},
+  pages = {573--583},
+  doi={10.1007/978-3-032-04984-1_55},
 }
 ```
 
