@@ -3,6 +3,20 @@ Midnight - Training State-of-the-Art Pathology Foundation Models with Orders of 
 
 This repository contains supplementary data for the paper [_Training state-of-the-art pathology foundation models with orders of magnitude less data_](https://arxiv.org/abs/2504.05186v1). Our approach achieves competitive performance compared to leading pathology foundation models (FMs), despite being trained on significantly fewer whole slide images (WSIs).
 
+```bibtex
+@InProceedings{KDK_Training_MICCAI2025,
+  title={Training state-of-the-art pathology foundation models with orders of magnitude less data},
+  author={Mikhail Karasikov and Joost van Doorn and Nicolas Känzig and Melis Erdal Cesur and Hugo Mark Horlings and Robert Berke and Fei Tang and Sebastian Otálora},
+  booktitle = {Medical Image Computing and Computer Assisted Intervention -- MICCAI 2025},
+  year = {2025},
+  publisher = {Springer Nature Switzerland},
+  volume = {LNCS 15967},
+  month = {October},
+  pages = {573--583},
+  doi={10.1007/978-3-032-04984-1_55},
+}
+```
+
 ## Overview
 
 We propose a refined self-supervised training framework based on DINOv2 with modifications that optimize model performance specifically for computational pathology. Our main contributions include:
@@ -125,21 +139,6 @@ print(f"Embedding shape: {embedding[0].shape}")
 ### Use via Trident
 
 Midnight-12k is now supported in the [Trident toolkit](https://github.com/mahmoodlab/TRIDENT), see the documentation for more details.
-
- ## Citation
- ```bibtex
-@InProceedings{KarMik_Training_MICCAI2025,
-  title={Training state-of-the-art pathology foundation models with orders of magnitude less data},
-  author={Mikhail Karasikov and Joost van Doorn and Nicolas Känzig and Melis Erdal Cesur and Hugo Mark Horlings and Robert Berke and Fei Tang and Sebastian Otálora},
-  booktitle = {Medical Image Computing and Computer Assisted Intervention -- MICCAI 2025},
-  year = {2025},
-  publisher = {Springer Nature Switzerland},
-  volume = {LNCS 15967},
-  month = {October},
-  pages = {573--583},
-  doi={10.1007/978-3-032-04984-1_55},
-}
-```
 
 <br />
 
